@@ -1,0 +1,70 @@
+#N canvas 0 23 1280 634 10;
+#X obj 48 144 osc~;
+#X floatatom 32 115 5 200 1500 0 - - -, f 5;
+#X obj 48 178 *~;
+#X obj 38 220 dac~;
+#X obj 218 80 vsl 15 64 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 264 185 5 0 0 0 - - -, f 5;
+#X obj 218 199 line~;
+#X msg 218 160 \$1 20;
+#X text 97 160 Evitamos clicks;
+#X obj 310 17 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 344 81 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 472 65 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 473 147 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 344 121 1 \, 0 1000;
+#X floatatom 546 50 5 100 2000 0 - - -, f 5;
+#X obj 32 72 line 0 100;
+#X obj 218 47 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 130 249 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 113 286 metro 1000;
+#X obj 106 327 f;
+#X obj 105 361 + 1;
+#X floatatom 114 400 5 0 0 0 - - -, f 5;
+#X text 139 327 almacena un número flotante;
+#X obj 105 436 mod 60, f 7;
+#X floatatom 102 467 5 0 0 0 - - -, f 5;
+#X msg 254 113 0 \, 1 2000;
+#X msg 73 44 4000 \, 0 4000;
+#X msg 32 17 0 \, 4000 4000;
+#X obj 330 47 pipe 4000;
+#X msg 140 69 440;
+#X obj 473 105 metro 1000;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 7 0;
+#X connect 6 0 2 1;
+#X connect 7 0 6 0;
+#X connect 7 0 5 0;
+#X connect 9 0 25 0;
+#X connect 9 0 27 0;
+#X connect 9 0 28 0;
+#X connect 10 0 13 0;
+#X connect 10 0 26 0;
+#X connect 11 0 30 0;
+#X connect 12 0 16 0;
+#X connect 12 0 9 0;
+#X connect 14 0 30 1;
+#X connect 15 0 1 0;
+#X connect 16 0 4 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 19 1;
+#X connect 20 0 21 0;
+#X connect 21 0 23 0;
+#X connect 23 0 24 0;
+#X connect 26 0 15 0;
+#X connect 27 0 15 0;
+#X connect 28 0 10 0;
+#X connect 29 0 15 0;
+#X connect 30 0 12 0;
