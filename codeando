@@ -1,0 +1,38 @@
+//Encender el servidor
+
+s.boot;
+
+/*Definición de SynthDef
+Pbind llama a Synthdef con la llave \instrument
+Pbind usa un patrón Pseq de forma infinita para controlar la nota
+Pbind usa un patrón Pxrand de forma infinita para controlar la duración
+Pdef englobe a Pbind con el nombre \ejemplo
+Una rutina reproduce Pdef, y en 10 segundos lo termina
+El  código  debe  estar  contenido  en  un  bloque*/
+
+(
+SynthDef(\misinte, {|freq=220, mul=0.2, pan=0|
+	var env;
+	env=EnvGen.kr(Env.perc(0.01,2),1,doneAction:2);
+	Out.ar(0,Pan2.ar(LFTri.ar(freq,0,mul)*env,0));
+}).add;
+
+(
+~r=Routine({x=Pseq([Pdef(\ejemplo, Pbind(\instrument, \misinte,
+	\note, Pseq([0,3,7,12,3,7,12,15,7,12,3,7],inf),
+	\mul,0.2,
+	\dur, Pxrand([0.4, 0.4, 0.2,0.2], inf)))]).play;
+30.wait;
+x.stop;
+});
+~r.play;
+)
+)
+
+//Ruido rosa controlado por el mouse
+
+~mar={BrownNoise.ar(MouseX.kr(0,0.05))*SinOsc.kr(0.4)!2}.play;
+~mar.free;
+
+//Ejecutar la siguiente línea para comenzar la grabación y ejecutar comando punto para finalizarla
+s.record;
