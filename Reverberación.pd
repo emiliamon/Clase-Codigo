@@ -1,0 +1,58 @@
+#N canvas 111 22 1031 624 10;
+#X obj 16 12 cnv 15 1000 600 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 448 495 dac~;
+#X obj 373 202 *~;
+#X obj 388 144 tgl 30 0 empty empty empty 17 7 0 10 -1 -262144 -1 0
+1;
+#X obj 458 368 freeverb~;
+#X msg 532 288 dry \$1;
+#X msg 597 288 wet \$1;
+#X msg 654 288 roomsize \$1;
+#X obj 532 203 vsl 15 64 0 1 0 0 empty empty empty 0 -9 0 10 -262130
+-1 -1 0 1;
+#X obj 597 203 vsl 15 64 0 1 0 0 empty empty empty 0 -9 0 10 -204786
+-1 -1 0 1;
+#X obj 654 203 vsl 15 64 0 1 0 0 empty empty empty 0 -9 0 10 -232576
+-1 -1 0 1;
+#X text 387 128 BOTON DE ENCENDIDO;
+#X text 679 262 REVERBERACIÓN;
+#X floatatom 532 118 5 0 0 0 - - -;
+#X obj 532 143 / 127;
+#X obj 532 66 ctlin 1;
+#X floatatom 597 119 5 0 0 0 - - -;
+#X obj 597 144 / 127;
+#X floatatom 654 119 5 0 0 0 - - -;
+#X obj 654 144 / 127;
+#X obj 597 67 ctlin 2;
+#X obj 654 67 ctlin 3;
+#X obj 263 162 readsf~;
+#X msg 263 128 open \$1;
+#X obj 263 97 openpanel;
+#X obj 263 47 bng 30 250 50 0 empty empty ABRIR 0 -6 0 10 -258113 -1
+-1;
+#X msg 334 134 start;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+#X connect 4 0 1 0;
+#X connect 4 0 1 1;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 7 0;
+#X connect 13 0 14 0;
+#X connect 14 0 8 0;
+#X connect 15 0 13 0;
+#X connect 16 0 17 0;
+#X connect 17 0 9 0;
+#X connect 18 0 19 0;
+#X connect 19 0 10 0;
+#X connect 20 0 16 0;
+#X connect 21 0 18 0;
+#X connect 22 0 2 0;
+#X connect 23 0 22 0;
+#X connect 24 0 23 0;
+#X connect 25 0 24 0;
+#X connect 26 0 22 0;
